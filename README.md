@@ -1,58 +1,10 @@
-# Welcome to your Lovable project
+# Task Manager Application
 
-## Project info
+A full-stack task management application built with React (frontend) and Go (backend). The application allows users to create, manage, and prioritize tasks with detailed attributes including deadlines, priorities, dependencies, and more.
 
-**URL**: https://lovable.dev/projects/e59fa446-e442-4201-a832-8ee9804efb31
+## Tech Stack
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/e59fa446-e442-4201-a832-8ee9804efb31) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
+### Frontend
 
 - Vite
 - TypeScript
@@ -60,10 +12,117 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+### Backend
 
-Simply open [Lovable](https://lovable.dev/projects/e59fa446-e442-4201-a832-8ee9804efb31) and click on Share -> Publish.
+- Go
+- MongoDB
+- Gorilla Mux
+- CORS support
 
-## I want to use a custom domain - is that possible?
+## Prerequisites
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Go 1.21.4 or later
+- MongoDB
+
+## Getting Started
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+2. Install Go dependencies:
+
+```bash
+go mod download
+```
+
+3. Start the backend server:
+
+```bash
+go run main.go
+```
+
+The server will start on `http://localhost:8000`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+
+```bash
+cd task-manager
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## API Endpoints
+
+- `GET /api/tasks` - Retrieve all tasks
+- `POST /api/tasks` - Create a new task
+- `GET /api/tasks/{id}` - Retrieve a specific task
+- `PUT /api/tasks/{id}` - Update a task
+- `DELETE /api/tasks/{id}` - Delete a task
+
+## Task Structure
+
+Tasks include the following attributes:
+
+```typescript
+{
+  id: string
+  description: string
+  deadline: string
+  timeRequired: string
+  priority: string
+  urgency: number
+  dependencies: string[]
+  resources: string[]
+  subtasks: string[]
+  group?: string
+}
+```
+
+## Development
+
+- Backend code is in the `backend/` directory
+- Frontend code is in the `task-manager/` directory
+- Frontend API calls are handled in `task-manager/src/lib/api.ts`
+- Main task interface is defined in `task-manager/src/types.ts`
+
+## Building for Production
+
+### Backend
+
+```bash
+cd backend
+go build
+```
+
+### Frontend
+
+```bash
+cd task-manager
+npm run build
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+TODO:
